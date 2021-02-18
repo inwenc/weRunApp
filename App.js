@@ -1,6 +1,6 @@
 //import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Dimensions, PanResponder } from 'react-native';
 import  MapView  from 'react-native-maps';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
@@ -9,7 +9,8 @@ export default class App extends React.Component {
   constructor (props) {
     super (props);
     this.state = {
-      region: null
+      region: null,
+      markerSpot: null
     }
     this._getLocationAsync();
   }
@@ -40,7 +41,13 @@ _getLocationAsync = async () =>  {
       rotateEnabled={false}
       showsUserLocation={true}
       style={styles.mapStyle}
-      />
+      >
+        <MapView.Marker
+          coordinate={this.state.markerSpot}
+          title={"first"}
+          description={"none"}
+        />
+        </MapView>
 
     </View>
   );
