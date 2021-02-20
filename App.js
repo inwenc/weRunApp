@@ -10,9 +10,19 @@ export default class App extends React.Component {
     super (props);
     this.state = {
       region: null,
-      markerSpot: null
+      markers:[]
     }
     this._getLocationAsync();
+    // this.panResponder =
+    //   PanResponder.create({
+    //     onStartShouldSetPanResponder: (evt, gestureState) => true,
+    //     onPanResponderGrant: (e, gestureState) => {
+    //     console.log('something', gestureState.x0, gestureState.y0);
+    //     this.setState({marketSpot: {latitude: gestureState.x0, longitude: gestureState.y0}})
+    //     console.log('state', this.state.markerSpot)
+    //    }
+    //   })
+
   }
 _getLocationAsync = async () =>  {
   const { status, permissions } = await Permissions.askAsync(Permissions.LOCATION);
@@ -25,7 +35,6 @@ _getLocationAsync = async () =>  {
       longitudeDelta: 0.045,
     }
     this.setState({region: region})
-    console.log('region', location)
   } else {
     throw new Error('Location permission not granted');
   }
@@ -33,20 +42,25 @@ _getLocationAsync = async () =>  {
 
   render () {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} >
       <Text>HomeScreen</Text>
       <MapView
-      initialRegion={this.state.region}
-      showCompass={true}
-      rotateEnabled={false}
-      showsUserLocation={true}
-      style={styles.mapStyle}
+        initialRegion={this.state.region}
+        showCompass={true}
+        rotateEnabled={false}
+        showsUserLocation={true}
+        style={styles.mapStyle}
+        onPress={(e) => {this.setState({ markers: [...this.state.markers, { latlng: e.nativeEvent.coordinate }] })
+          console.log('e', e.nativeEvent)
+    }}
       >
-        <MapView.Marker
-          coordinate={this.state.markerSpot}
-          title={"first"}
-          description={"none"}
-        />
+        {
+    this.state.markers.map((marker, i) => (
+        <MapView.Marker key={i} coordinate={marker.latlng} />
+    ))
+}
+
+
         </MapView>
 
     </View>
