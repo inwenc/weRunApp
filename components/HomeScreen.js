@@ -8,6 +8,10 @@ export const HomeScreen = ({ navigation }) => {
         title="Choose your checkpoints on Map"
         onPress={() => navigation.navigate("CheckPointsMap")}
       />
+      <Button
+        title="Start Running"
+        onPress={() => navigation.navigate("AnimatedMarkers")}
+      />
     </View>
   );
 };
