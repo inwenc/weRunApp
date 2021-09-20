@@ -1,8 +1,7 @@
+import * as React from "react";
 import MapView from "react-native-maps";
 import * as Location from "expo-location";
 import * as Permissions from "expo-permissions";
-
-import * as React from "react";
 import {
   StyleSheet,
   View,
