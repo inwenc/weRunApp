@@ -86,57 +86,6 @@ const styles = StyleSheet.create({
     height: Dimensions.get("window").height,
   },
 });
-// const SecondScreen = () => {
-//   return <Text>Hola</Text>;
-// };
-// class SecondScreen extends React.Component {
-//   render() {
-//     return <Text>Hola</Text>;
-//   }
-// }
-
-// const RootStack = createNativeStackNavigator();
-// const RootStackScreen = () => {
-//   <RootStack.Navigator>
-//     <RootStack.Screen name="App" component={HomeScreen} />
-//   </RootStack.Navigator>;
-// };
-//   Home: { screen: HomeScreen }, });
-
-// export default function App() {
-//   return <NavigationContainer>{<RootStack />}</NavigationContainer>;
-// }
-
-// const AppNavigator = createDrawerNavigator(
-//   {
-//     Home: {
-//       screen: HomeScreen,
-//     },
-//     About: {
-//       screen: AboutScreen,
-//     },
-//     Contact: {
-//       screen: ContactScreen,
-//     },
-//   },
-//   {
-//     initialRouteName: "Home",
-//     contentOptions: {
-//       activeTintColor: "#e91e63",
-//     },
-//   }
-// );
-
-// const AppContainer = createAppContainer(AppNavigator);
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#fff",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-// });
 
 function HomeScreen({ navigation }) {
   return (
