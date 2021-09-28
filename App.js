@@ -1,9 +1,9 @@
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { CheckPointsMap } from "./components/CheckPointsMap";
-import { HomeScreen } from "./components/HomeScreen";
-import { AnimatedMarkers } from "./components/AnimatedMarkers";
+import { CheckPointsMap } from "./src/CheckPointsMap";
+import { HomeScreen } from "./src/HomeScreen";
+import { AnimatedMarkers } from "./src/AnimatedMarkers";
 
 const Stack = createStackNavigator();
 
