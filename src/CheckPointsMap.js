@@ -15,7 +15,9 @@ export const CheckPointsMap = () => {
   const [region, setRegion] = React.useState(null);
   const [markers, setMarkers] = React.useState([]);
   React.useEffect(() => {
+    const ac = new AbortController();
     _getLocationAsync();
+    return () => ac.abort();
   });
 
   _getLocationAsync = async () => {
